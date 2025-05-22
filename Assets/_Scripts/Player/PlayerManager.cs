@@ -2,13 +2,15 @@ using UnityEngine;
 
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(PlayerMovement))]
-[RequireComponent(typeof(PlayerCamera))]
+[RequireComponent(typeof(PlayerStats))]
 
 public class PlayerManager : MonoBehaviour
 {
-    public static PlayerManager Instance;
+    public static PlayerManager Instance;   
 
     [HideInInspector] public PlayerInput playerInput;
+    [HideInInspector] public PlayerMovement playerMovement;
+    [HideInInspector] public PlayerStats playerStats;
 
     void Awake()
     {
@@ -24,5 +26,7 @@ public class PlayerManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         playerInput = GetComponent<PlayerInput>();
+        playerMovement = GetComponent<PlayerMovement>();
+        playerStats = GetComponent<PlayerStats>();  
     }
 }
